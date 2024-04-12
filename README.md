@@ -50,6 +50,10 @@ details.
 
 redux-persist(https://blog.logrocket.com/persist-state-redux-persist-redux-toolkit-react/#setting-up-react)
 
+## nextjs v14
+
+https://github.com/Mohammad-Faisal/nextjs-app-router-redux-toolkit-persist-integration
+
 ## **\*\***\*\*\*\***\*\***\*\*\*\***\*\***\*\*\*\***\*\***
 
 Material UI(https://mui.com/material-ui/getting-started/installation/)
