@@ -11,20 +11,20 @@ import {
   REGISTER
 } from 'redux-persist'
 import { mainApi } from './api/mainApi'
-import { token } from './slices/token'
+import { user } from './slices/user'
 
-const tokenPersistConfig = {
+const userPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token']
+  whitelist: ['user']
 }
 
 const rootReducer = combineReducers({
   [mainApi.reducerPath]: mainApi.reducer,
-  token: token.reducer
+  token: user.reducer
 })
 
-const persistedReducer = persistReducer(tokenPersistConfig, rootReducer)
+const persistedReducer = persistReducer(userPersistConfig, rootReducer)
 
 export const store = configureStore({
   reducer: persistedReducer,

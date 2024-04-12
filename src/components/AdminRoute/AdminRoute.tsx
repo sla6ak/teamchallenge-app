@@ -2,12 +2,12 @@
 import { useRouter } from 'next/router'
 import { useAppSelector } from '@/hooks/reduxHooks'
 
-function PrivateRoute({ children }: any) {
+function AdminRoute({ children }: any) {
   const router = useRouter()
-  const token = useAppSelector((state: any) => state.user.token)
-  if (token.length < 1) {
+  const login = useAppSelector((state: any) => state.user.login)
+  if (login !== 'admin') {
     router.push('/')
   }
   return children
 }
-export default PrivateRoute
+export default AdminRoute
