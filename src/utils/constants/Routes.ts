@@ -1,6 +1,6 @@
 export const ROUTES = {
-  Flowers: 'Квіти',
-  Ocasions: 'Випадки',
-  FlowersTypes: 'Типи квітів',
-  GiftSets: 'Подарункові набори'
+  Flowers: { title: 'Квіти', link: 'flowers' },
+  Ocasions: { title: 'Випадки', link: 'ocasions' },
+  FlowersTypes: { title: 'Типи квітів', link: 'flowerstypes' },
+  GiftSets: { title: 'Подарункові набори', link: 'giftsets' }
 }

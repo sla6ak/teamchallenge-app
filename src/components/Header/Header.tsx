@@ -32,11 +32,13 @@ const Header: FC<Props> = ({ pageName, titleHeader }) => {
   return (
     <header
       id="master-header"
-      className={pageName === ROUTES.Flowers ? 'full-screen overlayed' : ''}
+      className={
+        pageName === ROUTES.Flowers.link ? 'full-screen overlayed' : ''
+      }
     >
       <div className="top-header">
         <div className="container">
-          {pageName !== ROUTES.Flowers && (
+          {pageName !== ROUTES.Flowers.link && (
             <h1 id="logo">
               <Link href="/">
                 <img src={'#'} alt="" />
@@ -48,44 +50,52 @@ const Header: FC<Props> = ({ pageName, titleHeader }) => {
           </Link>
           <nav id="nav-menu" className={mobilMenu ? 'mobile' : ''}>
             <ul className={styles.nav_container}>
-              <li className={pageName === ROUTES.Flowers ? 'selected' : ''}>
+              <li
+                className={pageName === ROUTES.Flowers.link ? 'selected' : ''}
+              >
                 <Link
                   className={styles.nav_link}
-                  title={ROUTES.Flowers}
-                  href={ROUTES.Flowers}
+                  title={ROUTES.Flowers.title}
+                  href="/"
                   onClick={closeMobilMenu}
                 >
-                  {ROUTES.Flowers}
-                </Link>
-              </li>
-              <li className={pageName === ROUTES.Ocasions ? 'selected' : ''}>
-                <Link
-                  className={styles.nav_link}
-                  title={ROUTES.Ocasions}
-                  href={ROUTES.Ocasions}
-                  onClick={closeMobilMenu}
-                >
-                  {ROUTES.Ocasions}
+                  {ROUTES.Flowers.title}
                 </Link>
               </li>
               <li
-                className={pageName === ROUTES.FlowersTypes ? 'selected' : ''}
+                className={pageName === ROUTES.Ocasions.link ? 'selected' : ''}
               >
                 <Link
-                  title={ROUTES.FlowersTypes}
-                  href={ROUTES.FlowersTypes}
+                  className={styles.nav_link}
+                  title={ROUTES.Ocasions.title}
+                  href="ocasions"
                   onClick={closeMobilMenu}
                 >
-                  {ROUTES.FlowersTypes}
+                  {ROUTES.Ocasions.title}
                 </Link>
               </li>
-              <li className={pageName === ROUTES.GiftSets ? 'selected' : ''}>
+              <li
+                className={
+                  pageName === ROUTES.FlowersTypes.link ? 'selected' : ''
+                }
+              >
                 <Link
-                  title={ROUTES.GiftSets}
-                  href={ROUTES.GiftSets}
+                  title={ROUTES.FlowersTypes.title}
+                  href="flowerstypes"
                   onClick={closeMobilMenu}
                 >
-                  {ROUTES.GiftSets}
+                  {ROUTES.FlowersTypes.title}
+                </Link>
+              </li>
+              <li
+                className={pageName === ROUTES.GiftSets.link ? 'selected' : ''}
+              >
+                <Link
+                  title={ROUTES.GiftSets.title}
+                  href="giftsets"
+                  onClick={closeMobilMenu}
+                >
+                  {ROUTES.GiftSets.title}
                 </Link>
               </li>
               <li className={pageName === 'contactUs' ? 'selected' : ''}></li>
@@ -93,7 +103,7 @@ const Header: FC<Props> = ({ pageName, titleHeader }) => {
               {token.length > 1 && (
                 <li className={styles.logout}>
                   <Link
-                    title={ROUTES.Flowers}
+                    title={ROUTES.Flowers.title}
                     href="#"
                     onClick={() => {
                       setModal(true)
