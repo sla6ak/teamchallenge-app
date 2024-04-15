@@ -1,0 +1,22 @@
+.media_container {
+  /* background-image: url(../img/bg.jpg); */
+  background-size: cover;
+  background-position: center;
+}
+.logout {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.nav_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.nav_link {
+  white-space: nowrap;
+}
+.logo {
+  width: 30%;
+}
