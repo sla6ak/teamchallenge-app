@@ -1,5 +1,8 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import storage from 'redux-persist/lib/storage'
+import { mainApi } from './api/mainApi'
+import { mobilMenu } from './slices/mobilMenu'
+import { scrollView } from './slices/scrollView'
 import {
   persistStore,
   persistReducer,
@@ -10,21 +13,22 @@ import {
   PURGE,
   REGISTER
 } from 'redux-persist'
-import { mainApi } from './api/mainApi'
-import { token } from './slices/token'
+import { user } from './slices/user'
 
-const tokenPersistConfig = {
+const userPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token']
+  whitelist: ['user']
 }
 
 const rootReducer = combineReducers({
   [mainApi.reducerPath]: mainApi.reducer,
-  token: token.reducer
+  user: user.reducer,
+  mobilMenu: mobilMenu.reducer,
+  scrollView: scrollView.reducer
 })
 
-const persistedReducer = persistReducer(tokenPersistConfig, rootReducer)
+const persistedReducer = persistReducer(userPersistConfig, rootReducer)
 
 export const store = configureStore({
   reducer: persistedReducer,
@@ -36,5 +40,7 @@ export const store = configureStore({
     }).concat(mainApi.middleware)
 })
 export const persistor = persistStore(store)
+
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
+export type AppStore = ReturnType<typeof rootReducer>
