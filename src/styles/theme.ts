@@ -22,11 +22,14 @@ const comfortaa = Comfortaa({
 
 const theme = createTheme({
   typography: {
-    fontFamily: peddana.style.fontFamily,
+    fontFamily: roboto.style.fontFamily,
     h1: {
       fontFamily: peddana.style.fontFamily,
     },
-    h2: {
+    h3: {
+      fontFamily: comfortaa.style.fontFamily,
+    },
+    button: {
       fontFamily: comfortaa.style.fontFamily,
     },
   },
