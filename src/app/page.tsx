@@ -1,12 +1,13 @@
 import Layout from '@/utils/Layout/Layout'
 import { ROUTES } from '@/utils/constants/Routes'
+import HeroSection from '@/components/UI/HeroSection.tsx/HeroSection'
 
 export default function Home() {
   return (
     <Layout pageName={ROUTES.Flowers.link} title={ROUTES.Flowers.title}>
       <div className="flex min-h-screen flex-col items-center justify-between p-24">
-        <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-          <h1>{ROUTES.Flowers.title}</h1>
+        <div className="z-10 w-full">
+          <HeroSection />
         </div>
       </div>
     </Layout>

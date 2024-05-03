@@ -1,8 +1,11 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-// import StoreProvider from './StoreProvider'
 import '@/styles/globals.css'
 import dynamic from 'next/dynamic'
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter'
+import { ThemeProvider } from '@mui/material/styles';
+import theme from '@/styles/theme'
+
 const StoreProvider = dynamic(() => import('./StoreProvider'), {
   ssr: false
 })
@@ -22,7 +25,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <StoreProvider>{children}</StoreProvider>
+        < AppRouterCacheProvider>
+          <ThemeProvider theme={theme}>
+            <StoreProvider>
+              {children}
+            </StoreProvider>
+          </ThemeProvider>
+        </ AppRouterCacheProvider>
       </body>
     </html>
   )
