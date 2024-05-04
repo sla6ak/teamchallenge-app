@@ -56,9 +56,8 @@ const Layout: FC<Props> = ({
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <div
-        className={`${pageName} ${
-          scrollIs < 50 ? 'scroll_body' : 'scroll_body sticky'
-        } ${mobilMenu && 'open'}`}
+        className={`${pageName} ${scrollIs < 50 ? 'scroll_body' : 'scroll_body sticky'
+          } ${mobilMenu && 'open'}`}
         ref={bodyRef}
         onScroll={handleScroll}
       >

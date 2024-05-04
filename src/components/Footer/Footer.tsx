@@ -1,7 +1,11 @@
 'use client'
-
 import { FC } from 'react'
 import Link from 'next/link'
+import { Container, Box, Grid, Typography, } from '@mui/material';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import Image from 'next/image'
+import logo from './logo-footer.png' // Your Logo component
 
 interface Props {
   scrollIs: number
@@ -10,107 +14,70 @@ interface Props {
 
 const Footer: FC<Props> = ({ scrollIs, pageName }) => {
   return (
-    <footer className="dark" id="footer-id">
-      <div className="container">
-        <div className="row">
-          <div className="footer-col col-md-4 col-sm-6">
-            <h3 className="focus-title">About Us</h3>
-            <p>
-              <img
-                width="200"
-                className="align-center"
-                src={'#'}
-                alt="THE SALON salon shop"
-              />
-            </p>
-            <p>Wear your story with Salon Shop</p>
-          </div>
+    <Box sx={{ bgcolor: 'primary.light' }} >
+      <footer >
+        <Container maxWidth='lg' sx={{ pt: 4, pb: 4 }}>
+          <Grid container direction="row" justifyContent="space-between" alignItems="flex-start">
+            <Grid item xs={12} md={6} sx={{ mb: 10 }} >
+              <Image src={logo} alt="Logo" />
+              <Box width={370} display={'flex'} justifyContent={'right'} gap={4} mr={20}>
+                <FacebookIcon sx={{ fontSize: 40 }} />
+                <InstagramIcon sx={{ fontSize: 40 }} />
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Typography variant="h5" gutterBottom>Daruy.ua - твій зручний сервіс для замовлення квітів.</Typography>
+              <Typography >Ще більше інформації в наших соц. мережах. </Typography>
+              <Grid container sx={{ pt: 3, pb: 4 }}>
+                <Grid item xs={6}>
+                  <ul className='list-none'>
+                    <li>
+                      <Link href="#">Квіти</Link>
+                    </li>
+                    <li>
+                      <Link href="#">Букети</Link>
+                    </li>
+                    <li>
+                      <Link href="#">Подарункові набори</Link>
+                    </li>
+                  </ul>
+                </Grid>
+                <Grid item xs={6}>
+                  <ul className='list-none'>
+                    <li>
+                      <Link href="#">Про нас</Link>
+                    </li>
+                    <li>
+                      <Link href="#">Пропозиції</Link>
+                    </li>
+                    <li>
+                      <Link href="#">Інформація</Link>
+                    </li>
+                  </ul>
+                </Grid>
+              </Grid>
 
-          <div className="footer-col col-md-4 col-sm-6">
-            <h3 className="focus-title">
-              <i className="fa fa-clock-o"></i>Working Days
-            </h3>
-            <dl className="working-days">
-              <dt>Monday</dt>
-              <dd>10:00 - 17:00</dd>
-              <dt>Tuesday</dt>
-              <dd>10:00 - 17:00</dd>
-              <dt>Wednesday</dt>
-              <dd>10:00 - 17:00</dd>
-              <dt>Thursday</dt>
-              <dd>10:00 - 17:00</dd>
-              <dt>Friday</dt>
-              <dd>10:00 - 17:00</dd>
-              <dt>Saturday</dt>
-              <dd>10:00 - 17:00</dd>
-              <dt>Sunday</dt>
-              <dd>CLOSED</dd>
-            </dl>
-          </div>
+              <Box sx={{ pb: 4 }}>
+                <Typography >Контактна інформація: </Typography>
+                <strong>
+                  <Link href="tel:+380966290475" >+38(0xx)-xxx-xx-xx</Link>
+                </strong>
+                <Typography >Україна, м.Київ, 02222 </Typography>
+              </Box>
+            </Grid>
+          </Grid>
 
-          <div className="footer-col footer-contacts col-md-4 col-sm-12">
-            <div className="contact-item">
-              <span>THE SALON - Salon Shop, Ukraine, Kiev</span>
-            </div>
-            <div className="contact-item">
-              <span>Phone:</span>
-              <strong>
-                <Link href="tel:+380966290475">+380966290475</Link>
-              </strong>
-            </div>
-            <div className="contact-item">
-              <span>Email:</span>
-              <strong>
-                <Link href="mailto:slabakxaker@gmail.com">
-                  slabakxaker@gmail.com
-                </Link>
-              </strong>
-            </div>
-            <div className="contact-item">
-              <span>Follow us on:</span>
-              <ul className="social-links">
-                <li>
-                  <Link
-                    title="Instagram"
-                    href="https://www.instagram.com/viktoriachmenik"
-                    target="_blank"
-                  >
-                    <i className="fa fa-instagram"></i>
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div className="copyright">
-        &copy; 2024 - <strong>THE SALON - Salon Shop</strong>
-      </div>
-      {/* <!-- ============ Contacts Bar - START ============ --> */}
-      {scrollIs > 2 && (
-        <div id="contacts-bar" className="row">
-          <div className="address col-md-6">
-            THE SALON - Salon Shop, Ukraine, Kiev
-          </div>
-          <div className="other col-md-6">
-            <span className="contact">
-              <i className="fa fa-phone"></i>Phone:{' '}
-              <Link href="tel:+380966290475">
-                <strong>+380966290475</strong>
-              </Link>
-            </span>
-            <span className="contact">
-              <i className="fa fa-envelope"></i>Email:{' '}
-              <Link href="mailto:slabakxaker@gmail.com">
-                <strong>slabakxaker@gmail.com</strong>
-              </Link>
-            </span>
-          </div>
-        </div>
-      )}
-      {/* <!-- ============ Contacts Bar - END ============ --> */}
-    </footer>
+          {/* <!-- ============ Contacts Bar - START ============ --> */}
+          {scrollIs > 2 && (
+            <div className="text-center">
+              &copy; 2024 our team
+            </div>
+          )}
+          {/* <!-- ============ Contacts Bar - END ============ --> */}
+        </Container>
+      </footer>
+    </Box>
   )
 }
 

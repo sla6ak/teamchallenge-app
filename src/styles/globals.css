@@ -791,9 +791,9 @@ input[type='checkbox']:checked + .checkbox-replacer:before {
     21.0 - Footer
 --------------------------------------------------------------*/
 
-footer {
+/* footer {
   background-color: #121212 !important;
-}
+} */
 
 footer .row {
   display: table;
