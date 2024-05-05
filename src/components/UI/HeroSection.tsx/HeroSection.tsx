@@ -1,7 +1,6 @@
-'use client'
 import React from 'react'
 import './HeroSection.css'
-import { Typography, Container, Button, Box } from '@mui/material'
+import { Typography, Container, Button } from '@mui/material'
 
 function HeroSection() {
   return (
