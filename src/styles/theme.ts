@@ -26,6 +26,9 @@ const theme = createTheme({
     h1: {
       fontFamily: peddana.style.fontFamily,
     },
+    h2: {
+      fontFamily: comfortaa.style.fontFamily,
+    },
     h3: {
       fontFamily: comfortaa.style.fontFamily,
     },
