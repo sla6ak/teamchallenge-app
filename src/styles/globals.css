@@ -29,9 +29,9 @@ body {
 }
 
 .main-layout {
-  background-image: url("/assets/design-element-L.png");
-  background-repeat: no-repeat;
-  background-position: top right;
+  background: top right no-repeat url("/assets/design-element-L.png"),
+  bottom 800px left no-repeat url("/assets/design-element-M.png") ;
+    
 }
 
 @layer utilities {
