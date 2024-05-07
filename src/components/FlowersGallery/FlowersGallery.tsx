@@ -1,4 +1,4 @@
-import { Container, Grid, Pagination, Stack, Typography } from '@mui/material';
+import { Box, Container, Grid, Pagination, Stack, Typography } from '@mui/material';
 import FlowerCard from '../FlowerCard/FlowerCard';
 import { flowersMocked } from './flowersMocked';
 
@@ -17,24 +17,26 @@ const FlowersGallery = () => {
   const flowers = flowersMocked.slice(0, 3);
 
   return (
-    <Container maxWidth='lg' >
-      <Typography sx={{ fontWeight: '300', mb: '50px' }} variant='h2' >Обирай найкраще</Typography>
+    <Box pt={25} >
+      <Container maxWidth='lg' >
+        <Typography sx={{ fontWeight: '300', mb: '50px' }} variant='h2' >Обирай найкраще</Typography>
 
-      <Grid container spacing={3}>
-        {flowers.map((flower) => (
-          <Grid item xs={12} md={6} lg={4} key={1}>
-            <FlowerCard key={flower.id} {...flower} />
-          </Grid>
-        ))}
-      </Grid>
+        <Grid container spacing={3}>
+          {flowers.map((flower) => (
+            <Grid item xs={12} md={6} lg={4} key={1}>
+              <FlowerCard key={flower.id} {...flower} />
+            </Grid>
+          ))}
+        </Grid>
 
-      {/* <Grid container justifyContent="center" mt={3} >
+        {/* <Grid container justifyContent="center" mt={3} >
         <Stack spacing={2} >
           <Pagination count={9} color="secondary" />
         </Stack>
       </Grid> */}
 
-    </Container >
+      </Container >
+    </Box>
   )
 };
 

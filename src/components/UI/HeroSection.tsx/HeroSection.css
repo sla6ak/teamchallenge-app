@@ -1,8 +1,14 @@
-.hero-section {
-  height: 400px;
+.hero-section {  
   background-image: url("/assets/design-element_XS.png");
   background-repeat: no-repeat;
   background-position: top 216px left 222px;
+  background-size: 181px 178px;
+}
+
+.qasection {
+  background-image: url("/assets/design-element_XS.png");
+  background-repeat: no-repeat;
+  background-position: bottom right 528px;
   background-size: 181px 178px;
 }
 

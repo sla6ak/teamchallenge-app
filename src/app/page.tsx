@@ -8,13 +8,11 @@ import FlowersGallery from '@/components/FlowersGallery/FlowersGallery'
 export default function Home() {
   return (
     <Layout pageName={ROUTES.Flowers.link} title={ROUTES.Flowers.title}>
-      <div className="flex min-h-screen flex-col items-center justify-between p-24">
-        <div className="z-10 w-full">
-          <HeroSection />
-          <FlowersGallery />
-          <QASection />
-        </div>
-      </div>
+
+      <HeroSection />
+      <FlowersGallery />
+      <QASection />
+
     </Layout>
   )
 }
