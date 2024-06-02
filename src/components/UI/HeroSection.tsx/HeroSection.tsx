@@ -5,7 +5,7 @@ import { Typography, Container, Button, Box } from '@mui/material'
 function HeroSection() {
   return (
     <div>
-      <div className="hero-section p-4 mt-32">
+      <div className="hero-section px-4 mt-32 pb-28">
         <Typography variant="h1">DARUY</Typography>
         <Typography
           variant="h3"

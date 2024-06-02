@@ -9,6 +9,11 @@ import { openMobilMenuAction } from '@/redux/slices/mobilMenu'
 import { closeMobilMenuAction } from '@/redux/slices/mobilMenu'
 import Modal from '../../Modal/Modal'
 import { Container, Box, Grid, Typography } from '@mui/material'
+import GradeIcon from '@mui/icons-material/Grade'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle'
+import Image from 'next/image'
+import logo from '../../../img/logo-footer.png' // Your Logo component
 // import AdminLogHandler from '../adminLogHandler/AdminLogHandler'
 
 type RootState = {
@@ -33,9 +38,7 @@ const Header: FC<Props> = ({ pageName, titleHeader }) => {
   return (
     <header
       id="master-header"
-      className={
-        pageName === ROUTES.Flowers.link ? 'full-screen overlayed' : ''
-      }
+      className={pageName === ROUTES.Home.link ? 'full-screen overlayed' : ''}
     >
       <div className="top-header">
         <Container
@@ -43,16 +46,93 @@ const Header: FC<Props> = ({ pageName, titleHeader }) => {
           sx={{ pt: 4, pb: 4 }}
           className="h16 text-black"
         >
-          {pageName !== ROUTES.Flowers.link && (
-            <h1 id="logo">
-              <Link href="/">
-                <img src={'#'} alt="" />
-              </Link>
-            </h1>
-          )}
-          <Link id="nav-toggle" href="#" onClick={mobilMenuHandel}>
+          <Box className=" flex flex-row justify-between">
+            {/* <Link id="nav-toggle" href="#" onClick={mobilMenuHandel}>
             <span></span>
-          </Link>
+          </Link> */}
+            <Link href="/" className="">
+              <Image src={logo} alt="Logo" width={170} height={58} />
+            </Link>
+            <nav id="nav-menu" className={mobilMenu ? 'mobile' : ''}>
+              <ul className={styles.nav_container}>
+                <li
+                  className={
+                    pageName === ROUTES.Ocasions.link ? 'selected' : ''
+                  }
+                >
+                  <Link
+                    className={styles.nav_link}
+                    title={ROUTES.Ocasions.title}
+                    href="ocasions"
+                    onClick={closeMobilMenu}
+                  >
+                    <AccountCircleIcon sx={{ color: '#ffb300' }} />
+                    {ROUTES.Ocasions.title}
+                  </Link>
+                </li>
+                <li
+                  className={pageName === ROUTES.Likes.link ? 'selected' : ''}
+                >
+                  <Link
+                    className={styles.nav_link}
+                    title={ROUTES.Likes.title}
+                    href="flowerstypes"
+                    onClick={closeMobilMenu}
+                  >
+                    <GradeIcon sx={{ color: '#ffb300' }} />
+                    {ROUTES.Likes.title}
+                  </Link>
+                </li>
+                <li
+                  className={
+                    pageName === ROUTES.ShoppingCart.link ? 'selected' : ''
+                  }
+                >
+                  <Link
+                    className={styles.nav_link}
+                    title={ROUTES.ShoppingCart.title}
+                    href="giftsets"
+                    onClick={closeMobilMenu}
+                  >
+                    <ShoppingCartIcon sx={{ color: '#ffb300' }} />
+                    {ROUTES.ShoppingCart.title}
+                  </Link>
+                </li>
+                <li className={pageName === 'contactUs' ? 'selected' : ''}></li>
+
+                {token.length > 1 && (
+                  <li className={styles.logout}>
+                    <Link
+                      title={ROUTES.Home.title}
+                      href="#"
+                      onClick={() => {
+                        setModal(true)
+                      }}
+                    >
+                      {token.length < 1 ? 'Login' : 'Logout'}
+                    </Link>
+                  </li>
+                )}
+              </ul>
+            </nav>
+            {modal ? (
+              <Modal
+                onModalClose={() => {
+                  setModal(false)
+                }}
+              >
+                <div>AdminLogHandler</div>
+                {/* <AdminLogHandler
+                onModalClose={() => {
+                  setModal(false)
+                }}
+              /> */}
+              </Modal>
+            ) : null}
+            {/* <!-- ============ Main Navigation - END ============ --> */}
+          </Box>
+        </Container>
+        <Container>
           <nav id="nav-menu" className={mobilMenu ? 'mobile' : ''}>
             <ul className={styles.nav_container}>
               <li
@@ -61,41 +141,29 @@ const Header: FC<Props> = ({ pageName, titleHeader }) => {
                 <Link
                   className={styles.nav_link}
                   title={ROUTES.Flowers.title}
-                  href="/"
+                  href="ocasions"
                   onClick={closeMobilMenu}
                 >
                   {ROUTES.Flowers.title}
                 </Link>
               </li>
               <li
-                className={pageName === ROUTES.Ocasions.link ? 'selected' : ''}
+                className={pageName === ROUTES.Bouquets.link ? 'selected' : ''}
               >
                 <Link
                   className={styles.nav_link}
-                  title={ROUTES.Ocasions.title}
-                  href="ocasions"
-                  onClick={closeMobilMenu}
-                >
-                  {ROUTES.Ocasions.title}
-                </Link>
-              </li>
-              <li
-                className={
-                  pageName === ROUTES.FlowersTypes.link ? 'selected' : ''
-                }
-              >
-                <Link
-                  title={ROUTES.FlowersTypes.title}
+                  title={ROUTES.Bouquets.title}
                   href="flowerstypes"
                   onClick={closeMobilMenu}
                 >
-                  {ROUTES.FlowersTypes.title}
+                  {ROUTES.Bouquets.title}
                 </Link>
               </li>
               <li
                 className={pageName === ROUTES.GiftSets.link ? 'selected' : ''}
               >
                 <Link
+                  className={styles.nav_link}
                   title={ROUTES.GiftSets.title}
                   href="giftsets"
                   onClick={closeMobilMenu}
@@ -108,7 +176,7 @@ const Header: FC<Props> = ({ pageName, titleHeader }) => {
               {token.length > 1 && (
                 <li className={styles.logout}>
                   <Link
-                    title={ROUTES.Flowers.title}
+                    title={ROUTES.Home.title}
                     href="#"
                     onClick={() => {
                       setModal(true)
@@ -120,21 +188,6 @@ const Header: FC<Props> = ({ pageName, titleHeader }) => {
               )}
             </ul>
           </nav>
-          {modal ? (
-            <Modal
-              onModalClose={() => {
-                setModal(false)
-              }}
-            >
-              <div>AdminLogHandler</div>
-              {/* <AdminLogHandler
-                onModalClose={() => {
-                  setModal(false)
-                }}
-              /> */}
-            </Modal>
-          ) : null}
-          {/* <!-- ============ Main Navigation - END ============ --> */}
         </Container>
         <a
           href="/register"
@@ -142,19 +195,22 @@ const Header: FC<Props> = ({ pageName, titleHeader }) => {
         >
           Зареєструйся та отримай знижку 10% на особливі дати
         </a>
+        <Container
+          maxWidth="lg"
+          sx={{ pt: 4, pb: 4 }}
+          className="h16 text-black"
+        >
+          <Link
+            className=""
+            title={ROUTES.Home.title}
+            href="/"
+            onClick={closeMobilMenu}
+          >
+            {ROUTES.Home.title}
+          </Link>
+          {/* Головна */}
+        </Container>
       </div>
-      {pageName === 'home' ? (
-        <div id="brand">
-          <h1 id="logo">
-            <img className={styles.logo} src={'#'} alt="" />
-          </h1>
-          <div className="info">
-            <span>Wear your story with Shop</span>
-          </div>
-        </div>
-      ) : (
-        <h2 id="page-title">{titleHeader}</h2>
-      )}
     </header>
   )
 }
