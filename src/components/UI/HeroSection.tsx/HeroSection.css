@@ -1,0 +1,29 @@
+.hero-section {
+  overflow: visible;
+  position: relative;
+  z-index: 2;
+  background-image: url('/assets/design-element_XS.png');
+  background-position: bottom 0px left 25%;
+  background-size: 181px 178px;
+  background-repeat: no-repeat;
+}
+
+.about {
+  text-align: center;
+  width: 538px;
+  height: 278px;
+  border-radius: 48px;
+  background: linear-gradient(
+      65.26deg,
+      rgba(174, 234, 0, 0.08) 2.18%,
+      rgba(255, 171, 0, 0.08) 94.43%
+    ),
+    url('/assets/design-element-S.png');
+  background-size: contain;
+}
+
+.about-text {
+  max-width: 400px;
+  padding: 32px 57px 89px;
+  margin: 0 auto;
+}
