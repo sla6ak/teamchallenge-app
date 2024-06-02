@@ -76,7 +76,7 @@ const Header: FC<Props> = ({ pageName, titleHeader }) => {
                   <Link
                     className={styles.nav_link}
                     title={ROUTES.Likes.title}
-                    href="flowerstypes"
+                    href="likes"
                     onClick={closeMobilMenu}
                   >
                     <GradeIcon sx={{ color: '#ffb300' }} />
@@ -91,7 +91,7 @@ const Header: FC<Props> = ({ pageName, titleHeader }) => {
                   <Link
                     className={styles.nav_link}
                     title={ROUTES.ShoppingCart.title}
-                    href="giftsets"
+                    href="shoppingcart"
                     onClick={closeMobilMenu}
                   >
                     <ShoppingCartIcon sx={{ color: '#ffb300' }} />
