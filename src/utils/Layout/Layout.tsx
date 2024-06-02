@@ -5,8 +5,8 @@ import React, { FC, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Head from 'next/head'
 import { scrollStateAction } from '@/redux/slices/scrollView'
-import Footer from '@/components/Footer/Footer'
-import Header from '@/components/Header/Header'
+import Footer from '@/components/UI/Footer/Footer'
+import Header from '@/components/UI/Header/Header'
 
 type RootState = {
   mobilMenu: boolean
@@ -56,14 +56,15 @@ const Layout: FC<Props> = ({
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <div
-        className={`${pageName} ${scrollIs < 50 ? 'scroll_body' : 'scroll_body sticky'
-          } ${mobilMenu && 'open'}`}
+        className={`${pageName} ${
+          scrollIs < 50 ? 'scroll_body' : 'scroll_body sticky'
+        } ${mobilMenu && 'open'}`}
         ref={bodyRef}
         onScroll={handleScroll}
       >
-        <div className="wrapper">
+        <div className="wrapper flex flex-col min-h-screen">
           <Header pageName={pageName} titleHeader={titleHeader} />
-          <main className="main-layout">{children}</main>
+          <main className="main-layout flex-grow">{children}</main>
           <Footer scrollIs={currentScrollHeightIs} pageName={pageName} />
         </div>
       </div>
