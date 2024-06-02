@@ -1,16 +1,13 @@
 .hero-section {
+  overflow: visible;
+  position: relative;
+  z-index: 2;
   background-image: url('/assets/design-element_XS.png');
-  background-repeat: no-repeat;
-  background-position: top 216px left 222px;
+  background-position: bottom 0px left 25%;
   background-size: 181px 178px;
+  background-repeat: no-repeat;
 }
 
-.qasection {
-  background-image: url('/assets/design-element_XS.png');
-  background-repeat: no-repeat;
-  background-position: bottom right 528px;
-  background-size: 181px 178px;
-}
 .about {
   text-align: center;
   width: 538px;

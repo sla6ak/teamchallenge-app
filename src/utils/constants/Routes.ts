@@ -1,6 +1,9 @@
 export const ROUTES = {
+  Home: { title: 'Головна', link: 'home' },
+  Ocasions: { title: 'мій профіль', link: 'ocasions' },
+  Likes: { title: 'улюблені', link: 'likes' },
+  ShoppingCart: { title: 'кошик', link: 'shoppingcart' },
   Flowers: { title: 'Квіти', link: 'flowers' },
-  Ocasions: { title: 'Випадки', link: 'ocasions' },
-  FlowersTypes: { title: 'Типи квітів', link: 'flowerstypes' },
+  Bouquets: { title: 'Букети', link: 'bouquets' },
   GiftSets: { title: 'Подарункові набори', link: 'giftsets' }
 }
