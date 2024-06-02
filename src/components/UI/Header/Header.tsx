@@ -3,11 +3,12 @@
 import Link from 'next/link'
 import { FC, useState } from 'react'
 import { ROUTES } from '@/utils/constants/Routes'
-import styles from '../../styles/Header.module.css'
+import styles from '../../../styles/Header.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { openMobilMenuAction } from '@/redux/slices/mobilMenu'
 import { closeMobilMenuAction } from '@/redux/slices/mobilMenu'
-import Modal from '../Modal/Modal'
+import Modal from '../../Modal/Modal'
+import { Container, Box, Grid, Typography } from '@mui/material'
 // import AdminLogHandler from '../adminLogHandler/AdminLogHandler'
 
 type RootState = {
@@ -37,7 +38,11 @@ const Header: FC<Props> = ({ pageName, titleHeader }) => {
       }
     >
       <div className="top-header">
-        <div className="container">
+        <Container
+          maxWidth="lg"
+          sx={{ pt: 4, pb: 4 }}
+          className="h16 text-black"
+        >
           {pageName !== ROUTES.Flowers.link && (
             <h1 id="logo">
               <Link href="/">
@@ -130,7 +135,13 @@ const Header: FC<Props> = ({ pageName, titleHeader }) => {
             </Modal>
           ) : null}
           {/* <!-- ============ Main Navigation - END ============ --> */}
-        </div>
+        </Container>
+        <a
+          href="/register"
+          className="block h-16 w-full text-center py-4 bg-amber-500 text-white font-semibold text-xl hover:bg-amber-600"
+        >
+          Зареєструйся та отримай знижку 10% на особливі дати
+        </a>
       </div>
       {pageName === 'home' ? (
         <div id="brand">

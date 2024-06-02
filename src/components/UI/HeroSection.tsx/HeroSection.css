@@ -1,25 +1,27 @@
-.hero-section {  
-  background-image: url("/assets/design-element_XS.png");
+.hero-section {
+  background-image: url('/assets/design-element_XS.png');
   background-repeat: no-repeat;
   background-position: top 216px left 222px;
   background-size: 181px 178px;
 }
 
 .qasection {
-  background-image: url("/assets/design-element_XS.png");
+  background-image: url('/assets/design-element_XS.png');
   background-repeat: no-repeat;
   background-position: bottom right 528px;
   background-size: 181px 178px;
 }
-
 .about {
   text-align: center;
   width: 538px;
   height: 278px;
   border-radius: 48px;
-  margin: 420px auto 0;
-  background: linear-gradient(65.26deg, rgba(174, 234, 0, 0.08) 2.18%, rgba(255, 171, 0, 0.08) 94.43%),
-  url("/assets/design-element-S.png");  
+  background: linear-gradient(
+      65.26deg,
+      rgba(174, 234, 0, 0.08) 2.18%,
+      rgba(255, 171, 0, 0.08) 94.43%
+    ),
+    url('/assets/design-element-S.png');
   background-size: contain;
 }
 
@@ -28,4 +30,3 @@
   padding: 32px 57px 89px;
   margin: 0 auto;
 }
-
