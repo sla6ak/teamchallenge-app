@@ -7,7 +7,6 @@ import styles from '../../../styles/Header.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { openMobilMenuAction } from '@/redux/slices/mobilMenu'
 import { closeMobilMenuAction } from '@/redux/slices/mobilMenu'
-import Modal from '../../Modal/Modal'
 import { Container, Box, Grid, Typography } from '@mui/material'
 import GradeIcon from '@mui/icons-material/Grade'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
@@ -56,18 +55,16 @@ const Header: FC<Props> = ({ pageName, titleHeader }) => {
             <nav id="nav-menu" className={mobilMenu ? 'mobile' : ''}>
               <ul className={styles.nav_container}>
                 <li
-                  className={
-                    pageName === ROUTES.Ocasions.link ? 'selected' : ''
-                  }
+                  className={pageName === ROUTES.Profile.link ? 'selected' : ''}
                 >
                   <Link
                     className={styles.nav_link}
-                    title={ROUTES.Ocasions.title}
-                    href="ocasions"
+                    title={ROUTES.Profile.title}
+                    href={ROUTES.Profile.link}
                     onClick={closeMobilMenu}
                   >
                     <AccountCircleIcon sx={{ color: '#ffb300' }} />
-                    {ROUTES.Ocasions.title}
+                    {ROUTES.Profile.title}
                   </Link>
                 </li>
                 <li
@@ -76,7 +73,7 @@ const Header: FC<Props> = ({ pageName, titleHeader }) => {
                   <Link
                     className={styles.nav_link}
                     title={ROUTES.Likes.title}
-                    href="likes"
+                    href={ROUTES.Likes.link}
                     onClick={closeMobilMenu}
                   >
                     <GradeIcon sx={{ color: '#ffb300' }} />
@@ -91,7 +88,7 @@ const Header: FC<Props> = ({ pageName, titleHeader }) => {
                   <Link
                     className={styles.nav_link}
                     title={ROUTES.ShoppingCart.title}
-                    href="shoppingcart"
+                    href={ROUTES.ShoppingCart.link}
                     onClick={closeMobilMenu}
                   >
                     <ShoppingCartIcon sx={{ color: '#ffb300' }} />
@@ -115,21 +112,6 @@ const Header: FC<Props> = ({ pageName, titleHeader }) => {
                 )}
               </ul>
             </nav>
-            {modal ? (
-              <Modal
-                onModalClose={() => {
-                  setModal(false)
-                }}
-              >
-                <div>AdminLogHandler</div>
-                {/* <AdminLogHandler
-                onModalClose={() => {
-                  setModal(false)
-                }}
-              /> */}
-              </Modal>
-            ) : null}
-            {/* <!-- ============ Main Navigation - END ============ --> */}
           </Box>
         </Container>
         <Container>
@@ -141,7 +123,7 @@ const Header: FC<Props> = ({ pageName, titleHeader }) => {
                 <Link
                   className={styles.nav_link}
                   title={ROUTES.Flowers.title}
-                  href="ocasions"
+                  href={ROUTES.Flowers.link}
                   onClick={closeMobilMenu}
                 >
                   {ROUTES.Flowers.title}
@@ -153,7 +135,7 @@ const Header: FC<Props> = ({ pageName, titleHeader }) => {
                 <Link
                   className={styles.nav_link}
                   title={ROUTES.Bouquets.title}
-                  href="flowerstypes"
+                  href={ROUTES.Bouquets.link}
                   onClick={closeMobilMenu}
                 >
                   {ROUTES.Bouquets.title}
@@ -165,7 +147,7 @@ const Header: FC<Props> = ({ pageName, titleHeader }) => {
                 <Link
                   className={styles.nav_link}
                   title={ROUTES.GiftSets.title}
-                  href="giftsets"
+                  href={ROUTES.GiftSets.link}
                   onClick={closeMobilMenu}
                 >
                   {ROUTES.GiftSets.title}
@@ -173,7 +155,7 @@ const Header: FC<Props> = ({ pageName, titleHeader }) => {
               </li>
               <li className={pageName === 'contactUs' ? 'selected' : ''}></li>
 
-              {token.length > 1 && (
+              {/* {token.length > 1 && (
                 <li className={styles.logout}>
                   <Link
                     title={ROUTES.Home.title}
@@ -185,16 +167,18 @@ const Header: FC<Props> = ({ pageName, titleHeader }) => {
                     {token.length < 1 ? 'Login' : 'Logout'}
                   </Link>
                 </li>
-              )}
+              )} */}
             </ul>
           </nav>
         </Container>
-        <a
-          href="/register"
+        <Link
+          title={ROUTES.Auth.title}
+          href={ROUTES.Auth.link}
+          onClick={closeMobilMenu}
           className="block h-16 w-full text-center py-4 bg-amber-500 text-white font-semibold text-xl hover:bg-amber-600"
         >
           Зареєструйся та отримай знижку 10% на особливі дати
-        </a>
+        </Link>
         <Container
           maxWidth="lg"
           sx={{ pt: 4, pb: 4 }}
